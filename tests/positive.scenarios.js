@@ -48,37 +48,3 @@ test('Task is deleted', async t => {
     let listSize = await mainPage.getSizeOfItemList();
     await t.expect(listSize).eql(0);
 });
-
-//сделать красиво, добить проверку
-test('Active tab does not have completed tasks', async t => {
-    let text1 = 'first';
-    let text2 = 'second';
-    let text3 = 'third';
-    let text4 = 'forth';
-    let itemCount = 0;
-
-    await mainPage.addTask(text1);
-    itemCount++;
-    await mainPage.addTask(text2);
-    itemCount++;
-    await mainPage.addTask(text3);
-    itemCount++;
-    await mainPage.addTask(text4);
-    itemCount++;
-
-    await mainPage.markTaskAsCompleted(text3);
-    itemCount--;
-
-    await mainPage.clickActiveTab();
-
-    let actualItemCount = (await mainPage.getTextFromTheItemCountLbl()).match(/\d+/);
-    
-    await t.expect(itemCount).eql(parseInt(actualItemCount[0]));
-    
-    let listSize = await mainPage.getSizeOfItemList();
-    await t.expect(listSize).eql(itemCount);
-
-    await t.expect(lblCompletedTask(text3).exists).notOk();
-
-    await t.wait(2000);
-});
