@@ -53,6 +53,9 @@ class MainPage{
         await t.click(this.btnActive);
     }
 
+    async clickTxbToAddToDo() {
+        await t.click(this.txbAddToDo);
+    }
 }
 
 export default new MainPage();
