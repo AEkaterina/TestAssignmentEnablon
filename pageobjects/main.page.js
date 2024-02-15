@@ -56,6 +56,10 @@ class MainPage{
     async clickTxbToAddToDo() {
         await t.click(this.txbAddToDo);
     }
+
+    async clickChkWithOffset(taskText, offsetX, offsetY) {
+        await t.click(this.lblTask(taskText), { offsetX : offsetX, offsetY : offsetY });
+    }
 }
 
 export default new MainPage();
