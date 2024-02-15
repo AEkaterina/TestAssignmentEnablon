@@ -53,7 +53,6 @@ test('Active tab does not have completed tasks', async t => {
     
     await mainPage.markTaskAsCompleted(listOfTasks[1]);
     itemCount--;
-    
     await mainPage.clickActiveTab();
 
     let actualItemCount = parseInt((await mainPage.getTextFromTheItemCountLbl()).match(/\d+/)[0]);

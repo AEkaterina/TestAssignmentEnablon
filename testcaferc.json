@@ -1,0 +1,5 @@
+{
+    "reporter": ["spec", ["allure", { "outputDir": "allure/allure-results" }]],
+    "src": "tests/*.js",
+    "browsers": ["chrome"]
+  }

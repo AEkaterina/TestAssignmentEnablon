@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "testcafe": "^3.5.0"
+  },
+  "dependencies": {
+    "testcafe-reporter-allure": "^1.0.5"
   }
 }

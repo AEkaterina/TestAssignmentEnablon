@@ -34,23 +34,25 @@ Clone the repository:
 ## Project Structure
 The common structure of the project:
 - pageobjects - contains a Page Object class with description of the web page.
-- tests - contains test files with positive and negative scenarios
+- tests - contains test files with positive and negative scenarios.
 
 ## Running Tests
-To run the tests execute the following command
+To run the tests execute the following command:
 
-`testcafe chrome tests/*.js`
+`testcafe chrome tests/*.js --reporter allure`
 
 ## Test Scenarios
 There are 4 positive and 4 negative test scenarios. 
 
 #### Positive scenarios
-**Scenario 1** User can add the task to the to-do list
+**Scenario 1** User can add the task to the to-do list.
 - Steps:
     
     1.1. Open the web app.
 
-    1.2. Enter the task to the field and click Enter.
+    1.2. Enter the task in the field. 
+    
+    1.3. Click Enter.
 - Expected result: The task is added to the to-do list.
 
 **Scenario 2** User can mark a task as completed.
@@ -58,7 +60,9 @@ There are 4 positive and 4 negative test scenarios.
     
     1.1. Open the web app.
 
-    1.2. Enter the task to the field and click Enter.
+    1.2. Enter the task in the field. 
+    
+    1.3. Click Enter.
 
     1.3. Click the checkbox to mark the task as completed. 
 
@@ -69,18 +73,20 @@ There are 4 positive and 4 negative test scenarios.
 
     1.1. Open the web app.
 
-    1.2. Enter the task to the field and click Enter.
+    1.2. Enter the task in the field. 
+    
+    1.3. Click Enter.
 
     1.3. Click on the cross to delete the task.    
 
 - Expected result: The task is removed from the to-do list.
 
-**Scenario 4**  User can switch the list only to Active tasks.
+**Scenario 4**  User can switch the list to Active tasks.
 - Steps:
     
     1.1. Open the web app.
 
-    1.2. Add several tasks to the list by entering them to the field and clicking Enter.
+    1.2. Add several tasks to the list by entering them in the field and clicking Enter.
 
     1.3. Click the checkbox on the one task to mark it as completed.
 
@@ -90,7 +96,7 @@ There are 4 positive and 4 negative test scenarios.
 
 #### Negative scenarios
 
-**Scenario 1** Leave the field empty
+**Scenario 1** Leave the field empty.
 - Steps:
 
     1.1. Open the web app.
@@ -101,34 +107,34 @@ There are 4 positive and 4 negative test scenarios.
 
 - Expected result: The empty task is not added.
 
-**Scenario 2** Input to the field only spaces
+**Scenario 2** Enter only spaces in the field.
 - Steps:
 
     1.1. Open the web app.
 
-    1.2. Input to the field only spaces
+    1.2. Enter only spaces in the field.
     
     1.3. Click Enter.
 
 - Expected result: The task with spaces is not added.
 
-**Scenario 3** Input to the field only one symbol
+**Scenario 3** Input only one symbol in the field.
 - Steps:
 
-    1.1. Open the web app
+    1.1. Open the web app.
 
-    1.2. Input one symbol to the field.
+    1.2. Enter one symbol in the field.
 
     1.3. Click Enter.
 
 - Expected result: The task with one symbol is not added.
 
-**Scenario 4** Click near the checkbox
+**Scenario 4** Click near the checkbox.
 - Steps:
 
     1.1. Open the web app.
 
-    1.2. Enter the task to the field 
+    1.2. Enter the task in the field.
     
     1.3. Click Enter.
 
@@ -138,7 +144,8 @@ There are 4 positive and 4 negative test scenarios.
 
 ## Reporting
 
-Generate Allure reports to view detailed test results:
+Generate Allure reports to view detailed test results. Execute the following commands:
 
 `allure generate allure/allure-results --clean`
+
 `allure open`
