@@ -1,0 +1,18 @@
+# Node.js dependencies
+node_modules/
+
+# TestCafe artifacts
+reports/
+screenshots/
+
+# Allure report artifacts
+allure-results/
+allure-report/
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
