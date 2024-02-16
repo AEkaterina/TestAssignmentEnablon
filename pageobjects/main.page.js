@@ -1,4 +1,5 @@
 import { Selector, t } from "testcafe";
+import { enterKey } from "../utils/keys";
 
 class MainPage{
     get txbAddToDo() { 
@@ -28,11 +29,12 @@ class MainPage{
     async addTask(text) {
         await t
             .typeText(this.txbAddToDo, text)
-            .pressKey('enter');
+            .pressKey(enterKey);
     }
 
-    async getTextFromTheItemCountLbl() {
-        return await this.lblItemLeft.textContent;
+    async getItemCountFromLbl() {
+        const numberRegex = /\d+/;
+        return (await this.lblItemLeft.textContent).match(numberRegex);
     }
 
     async markTaskAsCompleted(tastText) {

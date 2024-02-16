@@ -1,23 +1,24 @@
 import mainPage from "../pageobjects/main.page";
 
-fixture('Start').page('https://todomvc.com/examples/react/dist/#/');
+const baseUrl = 'https://todomvc.com/examples/react/dist/#/';
+let expectedItemCount = 0;
+
+fixture('Start').page(baseUrl);
 
 test('Task is displayed after adding it', async t => {
-    let taskText = 'Write an essay';
-    let expectedItemCount = 0;
+    const taskText = 'Write an essay';
     
     await mainPage.addTask(taskText);
     expectedItemCount++;
     
     await t.expect(mainPage.lblTask(taskText).exists).ok();
     
-    let actualItemCount = (await mainPage.getTextFromTheItemCountLbl()).match(/\d+/);
+    let actualItemCount = await mainPage.getItemCountFromLbl();
     await t.expect(parseInt(actualItemCount[0])).eql(expectedItemCount);
 });
 
 test('Task is marked as completed', async t => {
-    let taskText = 'Feed a cat';
-    let expectedItemCount = 0;
+    const taskText = 'Feed a cat';
     
     await mainPage.addTask(taskText);
     expectedItemCount++;
@@ -28,12 +29,12 @@ test('Task is marked as completed', async t => {
     
     await t.expect(mainPage.lblCompletedTask(taskText).exists).ok();
     
-    let actualItemCount = (await mainPage.getTextFromTheItemCountLbl()).match(/\d+/);
+    let actualItemCount = await mainPage.getItemCountFromLbl();
     await t.expect(parseInt(actualItemCount[0])).eql(expectedItemCount);
 });
 
 test('Task is deleted', async t => {
-    let taskText = 'Go to the gym';
+    const taskText = 'Go to the gym';
     
     await mainPage.addTask(taskText);
     await t.expect(mainPage.lblTask(taskText).exists).ok();
@@ -55,8 +56,8 @@ test('Active tab does not have completed tasks', async t => {
     itemCount--;
     await mainPage.clickActiveTab();
 
-    let actualItemCount = parseInt((await mainPage.getTextFromTheItemCountLbl()).match(/\d+/)[0]);
-    await t.expect(actualItemCount).eql(itemCount);
+    let actualItemCount = await mainPage.getItemCountFromLbl();
+    await t.expect(parseInt(actualItemCount[0])).eql(itemCount);
     
     let listSize = await mainPage.getSizeOfItemList();
     await t.expect(listSize).eql(itemCount);

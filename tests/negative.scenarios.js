@@ -1,17 +1,20 @@
 import mainPage from "../pageobjects/main.page";
+import { enterKey } from "../utils/keys";
 
-fixture('Start').page('https://todomvc.com/examples/react/dist/#/');
+const baseUrl = 'https://todomvc.com/examples/react/dist/#/';
+
+fixture('Start').page(baseUrl);
 
 test('Leave field empty', async t => {
     await mainPage.clickTxbToAddToDo();
-    await t.pressKey('enter');
+    await t.pressKey(enterKey);
     
     let listSize = await mainPage.getSizeOfItemList();
     await t.expect(listSize).eql(0);
 });
 
 test('Input only spaces', async t => {
-    let strWithSpaces = '     ';
+    const strWithSpaces = '     ';
     await mainPage.addTask(strWithSpaces);
     
     let listSize = await mainPage.getSizeOfItemList();
@@ -19,7 +22,7 @@ test('Input only spaces', async t => {
 });
 
 test('Input one symbol', async t => {
-    let taskText = 's';
+    const taskText = 's';
     await mainPage.addTask(taskText);
     
     let listSize = await mainPage.getSizeOfItemList();
@@ -27,11 +30,14 @@ test('Input one symbol', async t => {
 });
 
 test('Click near the checkbox', async t => {
-    let taskText = 'read a book';
+    const taskText = 'read a book';
     await mainPage.addTask(taskText);
-    await mainPage.clickChkWithOffset(taskText, 50, 25);
+
+    let offsetX = 50;
+    let offsetY = 25
+    await mainPage.clickChkWithOffset(taskText, offsetX, offsetY);
     
-    let actualItemCount = (await mainPage.getTextFromTheItemCountLbl()).match(/\d+/);
+    let actualItemCount = await mainPage.getItemCountFromLbl();
     await t.expect(parseInt(actualItemCount[0])).eql(1);
     await t.expect(mainPage.lblCompletedTask(taskText).exists).notOk();
 });
