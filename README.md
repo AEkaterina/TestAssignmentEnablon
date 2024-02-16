@@ -58,39 +58,39 @@ There are 4 positive and 4 negative test scenarios.
 **Scenario 2** User can mark a task as completed.
 - Steps:
     
-    1.1. Open the web app.
+    2.1. Open the web app.
 
-    1.2. Enter the task in the field. 
+    2.2. Enter the task in the field. 
     
-    1.3. Click Enter.
+    2.3. Click Enter.
 
-    1.3. Click the checkbox to mark the task as completed. 
+    2.4. Click the checkbox to mark the task as completed. 
 
 - Expected result: The task is marked as completed.
 
 **Scenario 3**  User can delete a task from the to-do list.
 - Steps:
 
-    1.1. Open the web app.
+    3.1. Open the web app.
 
-    1.2. Enter the task in the field. 
+    3.2. Enter the task in the field. 
     
-    1.3. Click Enter.
+    3.3. Click Enter.
 
-    1.3. Click on the cross to delete the task.    
+    3.4. Click on the cross to delete the task.    
 
 - Expected result: The task is removed from the to-do list.
 
 **Scenario 4**  User can switch the list to Active tasks.
 - Steps:
     
-    1.1. Open the web app.
+    4.1. Open the web app.
 
-    1.2. Add several tasks to the list by entering them in the field and clicking Enter.
+    4.2. Add several tasks to the list by entering them in the field and clicking Enter.
 
-    1.3. Click the checkbox on the one task to mark it as completed.
+    4.3. Click the checkbox on the one task to mark it as completed.
 
-    1.4. Switch to Active tab
+    4.4. Switch to Active tab
 
 - Expected result: The list of task contains only active tasks.
 
@@ -110,35 +110,35 @@ There are 4 positive and 4 negative test scenarios.
 **Scenario 2** Enter only spaces in the field.
 - Steps:
 
-    1.1. Open the web app.
+    2.1. Open the web app.
 
-    1.2. Enter only spaces in the field.
+    2.2. Enter only spaces in the field.
     
-    1.3. Click Enter.
+    2.3. Click Enter.
 
 - Expected result: The task with spaces is not added.
 
 **Scenario 3** Input only one symbol in the field.
 - Steps:
 
-    1.1. Open the web app.
+    3.1. Open the web app.
 
-    1.2. Enter one symbol in the field.
+    3.2. Enter one symbol in the field.
 
-    1.3. Click Enter.
+    3.3. Click Enter.
 
 - Expected result: The task with one symbol is not added.
 
 **Scenario 4** Click near the checkbox.
 - Steps:
 
-    1.1. Open the web app.
+    4.1. Open the web app.
 
-    1.2. Enter the task in the field.
+    4.2. Enter the task in the field.
     
-    1.3. Click Enter.
+    4.3. Click Enter.
 
-    1.4. Click near the checkbox to complete the task.
+    4.4. Click near the checkbox to complete the task.
 
 - Expected result: The tast is not marked as completed.
 
