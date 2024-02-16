@@ -1,7 +1,6 @@
 import mainPage from "../pageobjects/main.page";
+import { baseUrl } from "../resources/config";
 import { enterKey } from "../utils/keys";
-
-const baseUrl = 'https://todomvc.com/examples/react/dist/#/';
 
 fixture('Start').page(baseUrl);
 
@@ -33,8 +32,8 @@ test('Click near the checkbox', async t => {
     const taskText = 'read a book';
     await mainPage.addTask(taskText);
 
-    let offsetX = 50;
-    let offsetY = 25
+    const offsetX = 50;
+    const offsetY = 25
     await mainPage.clickChkWithOffset(taskText, offsetX, offsetY);
     
     let actualItemCount = await mainPage.getItemCountFromLbl();

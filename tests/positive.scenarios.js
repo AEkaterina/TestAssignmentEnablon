@@ -1,6 +1,6 @@
 import mainPage from "../pageobjects/main.page";
+import { baseUrl } from "../resources/config";
 
-const baseUrl = 'https://todomvc.com/examples/react/dist/#/';
 let expectedItemCount = 0;
 
 fixture('Start').page(baseUrl);
